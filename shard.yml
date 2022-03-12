@@ -1,0 +1,20 @@
+name: bandcamp-ripper
+version: 0.1.0
+
+# authors:
+#   - name <email@example.com>
+
+# description: |
+#   Short description of bandcamp_ripper
+targets:
+  bandcamp-ripper:
+    main: bandcamp-ripper.cr
+dependencies:
+  lexbor:
+    github: kostya/lexbor
+
+# development_dependencies:
+#   webmock:
+#     github: manastech/webmock.cr
+
+# license: MIT
