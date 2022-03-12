@@ -3,7 +3,10 @@ Utility for downloading music albums hosted on bandcamp.
 Just a little project I did to get started learning crystal c:
 
 ## Installation
-Download the binary file [here.]()
+### Linux
+Download the binary file [here.](https://github.com/AprilDolly/bandcamp_ripper/releases/tag/main)
+###Windows
+I have no idea :c probably have to use WSL or something
 
 ## Usage
 
