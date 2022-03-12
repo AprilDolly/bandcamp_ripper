@@ -7,7 +7,7 @@ Download the binary file [here.]()
 
 ## Usage
 
-`bandcamp-ripper albumURL1 albumURL2 albumURL3 ...
+`bandcamp-ripper albumURL1 albumURL2 albumURL3 ...`
 
 ## Building
 1. Clone this repository.
