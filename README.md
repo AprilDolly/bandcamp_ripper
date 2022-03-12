@@ -5,8 +5,11 @@ Just a little project I did to get started learning crystal c:
 ## Installation
 Download the binary file [here.]()
 
+## Usage
+
+`bandcamp-ripper albumURL1 albumURL2 albumURL3 ...
+
 ## Building
 1. Clone this repository.
 2. In the repository directory, run `shards build`
 3. Move the bandcamp-ripper file from bin to wherever you want to be able to execute it from.
-
