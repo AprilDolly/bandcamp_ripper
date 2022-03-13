@@ -6,5 +6,5 @@ if ARGV.size>0
 	end
 	puts "all done!"
 else
-	puts "Usage:\n bandcamp-ripper album1,album2,album3..."
+	puts "Usage:\n bandcamp-ripper albumURL1 albumURL2 albumURL3 ..."
 end

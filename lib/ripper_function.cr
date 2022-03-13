@@ -4,9 +4,11 @@ require "json"
 require "lexbor"
 require "process"
 require "file_utils"
+require "regex"
 include HTTP
 
 FFMPEG_NAME="ffmpeg"
+INVALID_FS_CHARS=pattern=Regex.new("[/|<|>|:|\"|\\|\||?|*]")
 
 def rip_album_data(target_url)
 	begin
@@ -20,14 +22,16 @@ def rip_album_data(target_url)
 	album_title=parser.css("h2.trackTitle").map(&.inner_text).to_a[0].to_s.gsub("\n","").strip(' ')
 	puts "Artist: #{artist_name}"
 	puts "Album: #{album_title}"
-	if Dir.exists?(artist_name)==false
-		Dir.mkdir(artist_name)
+	artist_dir=artist_name.gsub(INVALID_FS_CHARS," ")
+	album_dir=album_title.gsub(INVALID_FS_CHARS," ")
+	if Dir.exists?(artist_dir)==false
+		Dir.mkdir(artist_dir)
 	end
-	Dir.cd(artist_name)
-	if Dir.exists?(album_title)==false
-		Dir.mkdir(album_title)
+	Dir.cd(artist_dir)
+	if Dir.exists?(album_dir)==false
+		Dir.mkdir(album_dir)
 	end
-	Dir.cd(album_title)
+	Dir.cd(album_dir)
 	album_data=JSON.parse(parser.css("head > script:nth-child(39)").map(&.attribute_by("data-tralbum")).to_a[0].to_s)
 	album_data["trackinfo"].as_a.each do |trackdata|
 		file_url=""
@@ -38,7 +42,7 @@ def rip_album_data(target_url)
 		title=trackdata["title"]
 		track_num=trackdata["track_num"]
 		puts "Saving track #{track_num}: #{title}"
-		filename="#{track_num}. #{title}.mp3"
+		filename="#{track_num}. #{title}.mp3".gsub(INVALID_FS_CHARS," ")
 		Client.get(file_url.to_s) do |file_rsp|
 			File.write(filename,file_rsp.body_io)
 		end
