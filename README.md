@@ -4,7 +4,7 @@ Just a little project I did to get started learning crystal c:
 
 ## Installation
 ### Linux
-Download the binary file [here.](https://github.com/AprilDolly/bandcamp_ripper/releases/tag/main)
+Download the binary file [here.](https://github.com/AprilDolly/bandcamp_ripper/releases)
 ### Windows
 I have no idea :c probably have to use WSL or something
 
