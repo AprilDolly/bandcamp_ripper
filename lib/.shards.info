@@ -1,0 +1,6 @@
+---
+version: 1.0
+shards:
+  lexbor:
+    git: https://github.com/kostya/lexbor.git
+    version: 3.0.2
